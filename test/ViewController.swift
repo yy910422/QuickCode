@@ -14,9 +14,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var dataArray = [String]()
     var header: XHPathCover!
     var isEding = NSMutableArray()
-    var eHttp = HttpRequest()
-    var returnKeyHandler: IQKeyboardReturnKeyHandler!
     
+    var returnKeyHandler: IQKeyboardReturnKeyHandler!
+    var eHttp = HttpRequest()
     func didResponse(result: NSDictionary) {
         print(result)
     }
