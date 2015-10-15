@@ -17,17 +17,26 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     var returnKeyHandler: IQKeyboardReturnKeyHandler!
     var eHttp = HttpRequest()
+    
+    
     func didResponse(result: NSDictionary) {
         print(result)
     }
     
+    func didResponseByNSData(result: NSData) {
+      //解析XML
+      let xml = SWXMLHash.parse(result)
+        print(xml["soap:Envelope"]["soap:Body"]["ns1:getAppContentListResponse"]["return"].element!)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let url = "http://172.16.10.86:8080/jeecms/webService/getAppChannelList/getAppChannelList"
+        let url = "http://172.16.10.86:8080/jeecms/webService/getAppChannelList/getAppContentList"
         eHttp.delegate = self
-        let params = ["channelId":"123"]
-        eHttp.Get(url, parameters: params)
+        let params = ["channelId":"13"]
+        eHttp.getResponseByNSData(.GET, url: url, parameters: params)
         
         
 //        self.returnKeyHandler = [[IQKeyboardReturnKeyHandler alloc] initWithViewController:self];

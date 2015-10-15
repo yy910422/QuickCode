@@ -1,8 +1,9 @@
 import Foundation
 
 //普通网络请求协议
-protocol HttpProtocol{
+@objc protocol HttpProtocol{
     func didResponse(result:NSDictionary)
+    optional func didResponseByNSData(result:NSData)
 }
 
 class HttpRequest: NSObject {
@@ -32,6 +33,15 @@ class HttpRequest: NSObject {
                 return
             }
             self.delegate?.didResponse(response.result.value as! NSDictionary)
+        }
+    }
+    
+    func getResponseByNSData(method:Method,url:String,parameters:[String:NSObject]){
+        request(method, url, parameters: parameters, encoding: ParameterEncoding.URLEncodedInURL, headers: nil).responseJSON { (response) -> Void in
+            guard let _ = response.data else{
+                return
+            }
+        self.delegate?.didResponseByNSData!(response.data!)
         }
     }
 

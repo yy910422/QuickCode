@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		184B4A261BCF389800B99C15 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184B4A251BCF389800B99C15 /* SWXMLHash.swift */; settings = {ASSET_TAGS = (); }; };
 		187A54801BC79F7B001C7669 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187A547F1BC79F7B001C7669 /* AppDelegate.swift */; };
 		187A54821BC79F7B001C7669 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187A54811BC79F7B001C7669 /* ViewController.swift */; };
 		187A54851BC79F7B001C7669 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187A54831BC79F7B001C7669 /* Main.storyboard */; };
@@ -130,6 +131,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		184B4A251BCF389800B99C15 /* SWXMLHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWXMLHash.swift; sourceTree = "<group>"; };
 		187A547C1BC79F7B001C7669 /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		187A547F1BC79F7B001C7669 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		187A54811BC79F7B001C7669 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -477,6 +479,7 @@
 				187A55B41BC7A385001C7669 /* Alamofire */,
 				187A55C41BC7A385001C7669 /* Reflect */,
 				187A55D11BC7A385001C7669 /* SwiftyJSON.swift */,
+				184B4A251BCF389800B99C15 /* SWXMLHash.swift */,
 				18CB93E41BC90AFF00DAFAD1 /* SweetAlert.swift */,
 				187A55C31BC7A385001C7669 /* HttpRequest.swift */,
 				187A563B1BC8C47C001C7669 /* CustomTools.swift */,
@@ -872,6 +875,7 @@
 				18A7228D1BCC970F0017C04A /* IQNSArray+Sort.swift in Sources */,
 				187A55901BC7A33E001C7669 /* EAIntroView.m in Sources */,
 				187A55E71BC7A385001C7669 /* Reflect+Type.swift in Sources */,
+				184B4A261BCF389800B99C15 /* SWXMLHash.swift in Sources */,
 				187A55DF1BC7A385001C7669 /* Validation.swift in Sources */,
 				187A55D51BC7A385001C7669 /* Manager.swift in Sources */,
 				187A562F1BC8B444001C7669 /* DoPhotoCell.m in Sources */,
