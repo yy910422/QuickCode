@@ -1,4 +1,4 @@
-# **集成了一些常用的第三方插件，使用方便，快速入门**
+# 集成了一些常用的第三方插件，使用方便，快速入门
 ### 其中Objective-C部分大多数类库，出自StrongX大神视频中，大家可以去网站学习原汁原味：http://www.hcxy.me/course/48
 ####一、swift部分
 ##### 1. Alamofire
@@ -67,3 +67,73 @@ let xml = SWXMLHash.parse(result)
 ```
 #####6、CustomTools
 #####啊哈哈，这个是我自己写的，里面有个CustomVersion类，用来判断当前版本是否是最新版本的，很简单，就不贴代码啦
+####二、Objective-C部分
+####项目中目前已经把Swift桥接OC部分的代码都设置好了，所有的OC的类库可以直接在代码中使用，不需要再额外设置什么了。
+#####1、MJRefresh
+#####一行代码即可添加上拉加载、下拉刷新
+```swift
+//上拉加载
+ tableView.addGifFooterWithRefreshingTarget(self, refreshingAction: "addMoreData")
+ //下拉刷新
+ tableView.addLegendHeaderWithRefreshingTarget(self, refreshingAction: "headRefresh")
+```
+#####2、ProgressHUD
+#####很好用的一款HUD，现在swift也有很多HUD插件了，大家可以根据自己项目的情况引用，代码如下：
+```swift
+   ProgressHUD.showSuccess("")
+```
+#####3、PathCover
+#####facebook的个人主页的开源库，比较炫酷，可以设置下拉刷新，并且下拉可以设置背景图是否模糊，设置头像点击事件等，具体代码如下：
+```swift
+  var header: XHPathCover!
+  header = XHPathCover(frame: CGRectMake(0, 0, self.view.frame.width, 200))
+  //设置背景图
+        header.setBackgroundImage(UIImage(named: "BG"))
+        //设置头像
+        header.setAvatarImage(UIImage(named: "cute_girl.jpg"))
+        //背景模糊
+        header.isZoomingEffect = true
+        //设置头像按钮的属性
+        header.avatarButton.layer.cornerRadius = 33
+        header.avatarButton.layer.masksToBounds = true
+        header.avatarButton.addTarget(self, action: "doImage", forControlEvents: UIControlEvents.TouchUpInside)
+        //设置个人信息
+        header.setInfo(NSDictionary(objects: ["yuy","ios工程师"], forKeys: [XHUserNameKey,XHBirthdayKey]) as [NSObject : AnyObject])
+        //设置下拉触发的事件
+        header.handleRefreshEvent = {
+            self.headRefresh()
+       }
+      tableView.tableHeaderView = header
+```
+#####4、EAIntroView
+#####一般app第一次打开时，会有一个引导页，介绍版本更新内容，这个EAIntroView就是用来做这个的，很方便，代码如下：
+```swift
+//不得不说这完全按照StrongX的视频做的，嘿嘿比较懒。。
+ self.navigationController?.navigationBar.hidden = true
+        let page1 = EAIntroPage()
+        page1.bgImage = UIImage(named: "image1.jpg")
+        page1.title = "华于形，美于心"
+        page1.titleColor = UIColor.grayColor()
+        page1.titlePositionY = 400
+        page1.titleFont = UIFont.systemFontOfSize(20)
+        
+        let page2 = EAIntroPage()
+        page2.bgImage = UIImage(named: "image2.jpg")
+        page2.title = "德艺双馨，妙手天成"
+        page2.titleColor = UIColor.grayColor()
+        page2.titlePositionY = 400
+        page2.titleFont = UIFont.systemFontOfSize(20)
+        
+        let page3 = EAIntroPage()
+        page3.bgImage = UIImage(named: "image3.jpg")
+        page3.title = "表面文章，内在功夫"
+        page3.titleColor = UIColor.grayColor()
+        page3.titlePositionY = 400
+        page3.titleFont = UIFont.systemFontOfSize(20)
+        
+        let intro = EAIntroView(frame: self.view.frame, andPages: [page1,page2,page3])
+        intro.delegate = self
+        
+        intro.showInView(self.view)
+```
+####未完待续。。。

@@ -26,7 +26,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func didResponseByNSData(result: NSData) {
       //解析XML
       let xml = SWXMLHash.parse(result)
-        print(xml["soap:Envelope"]["soap:Body"]["ns1:getAppContentListResponse"]["return"].element!)
+ 
+        print(xml["soap:Envelope"]["soap:Body"]["ns1:getAppContentListResponse"]["return"].element!.children.count)
     }
     
     
@@ -37,7 +38,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         eHttp.delegate = self
         let params = ["channelId":"13"]
         eHttp.getResponseByNSData(.GET, url: url, parameters: params)
-        
         
 //        self.returnKeyHandler = [[IQKeyboardReturnKeyHandler alloc] initWithViewController:self];
 //        self.returnKeyHandler.lastTextFieldReturnKeyType = UIReturnKeyDone;
@@ -60,8 +60,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 //        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
 //        tableView.registerClass(SwipeableCell.classForCoder(), forCellReuseIdentifier: "cell")
 //        tableView.tableFooterView = UIView()
-//        //下拉刷新
-//        //tableView.addLegendHeaderWithRefreshingTarget(self, refreshingAction: "headRefresh")
+//          下拉刷新
+//          tableView.addLegendHeaderWithRefreshingTarget(self, refreshingAction: "headRefresh")
 //        
 //        header = XHPathCover(frame: CGRectMake(0, 0, self.view.frame.width, 200))
 //        header.setBackgroundImage(UIImage(named: "BG"))
