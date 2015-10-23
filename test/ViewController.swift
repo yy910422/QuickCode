@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  test
-//
-//  Created by apple on 15/10/9.
-//  Copyright © 2015年 yygs. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,EAIntroDelegate,HttpProtocol {
@@ -18,12 +10,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var returnKeyHandler: IQKeyboardReturnKeyHandler!
     var eHttp = HttpRequest()
     
-    
+
     func didResponse(result: NSDictionary) {
         print(result)
+       
     }
     
     func didResponseByNSData(result: NSData) {
+    
       //解析XML
       let xml = SWXMLHash.parse(result)
  
@@ -34,61 +28,60 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let url = "http://172.16.10.86:8080/jeecms/webService/getAppChannelList/getAppContentList"
-        eHttp.delegate = self
-        let params = ["channelId":"13"]
-        eHttp.getResponseByNSData(.GET, url: url, parameters: params)
+//        let url = "http://172.16.10.86:8080/jeecms/webService/getAppChannelList/getAppContentList"
+//        eHttp.delegate = self
+//        let params = ["channelId":"13"]
+//        eHttp.getResponseByNSData(.GET, url: url, parameters: params)
         
-//        self.returnKeyHandler = [[IQKeyboardReturnKeyHandler alloc] initWithViewController:self];
-//        self.returnKeyHandler.lastTextFieldReturnKeyType = UIReturnKeyDone;
-//        self.returnKeyHandler.toolbarManageBehaviour = IQAutoToolbarBySubviews;
         //键盘监听事件
-//        returnKeyHandler = IQKeyboardReturnKeyHandler.init(controller: self)
-//        returnKeyHandler.lastTextFieldReturnKeyType = UIReturnKeyType.Done
-//        returnKeyHandler.toolbarManageBehaviour = IQAutoToolbarManageBehaviour.BySubviews
-//        
-//        SweetAlert().showAlert("这是标题", subTitle: "swift移动架构设计demo", style: AlertStyle.Warning)
-//        let rightBarItem = UIBarButtonItem(title: "+", style: UIBarButtonItemStyle.Done, target: self, action: "addAction")
-//        
-//        
-//        self.navigationItem.rightBarButtonItem = rightBarItem
-//        self.title = "what"
-//        tableView = UITableView(frame: self.view.frame)
-//        tableView.delegate = self
-//        tableView.dataSource = self
-//        tableView.rowHeight = 80
-//        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-//        tableView.registerClass(SwipeableCell.classForCoder(), forCellReuseIdentifier: "cell")
-//        tableView.tableFooterView = UIView()
-//          下拉刷新
-//          tableView.addLegendHeaderWithRefreshingTarget(self, refreshingAction: "headRefresh")
-//        
-//        header = XHPathCover(frame: CGRectMake(0, 0, self.view.frame.width, 200))
-//        header.setBackgroundImage(UIImage(named: "BG"))
-//        header.setAvatarImage(UIImage(named: "cute_girl.jpg"))
-//        header.isZoomingEffect = true
-//        header.avatarButton.layer.cornerRadius = 33
-//        header.avatarButton.layer.masksToBounds = true
-//        header.avatarButton.addTarget(self, action: "doImage", forControlEvents: UIControlEvents.TouchUpInside)
-//        header.setInfo(NSDictionary(objects: ["yuy","ios工程师"], forKeys: [XHUserNameKey,XHBirthdayKey]) as [NSObject : AnyObject])
-//        
-//        header.handleRefreshEvent = {
-//            self.headRefresh()
-//        }
-//        tableView.tableHeaderView = header
-//        
-//        //上拉加载
-//        tableView.addGifFooterWithRefreshingTarget(self, refreshingAction: "addMoreData")
-//        self.view.addSubview(tableView)
-//        
-//        //加载数据
-//        addData("")
-//        
-//        //判断当前版本是否是最新的
-//        guard !CustomVersion.isLastVersion() else {
-//            guideView()
-//            return
-//        }
+        returnKeyHandler = IQKeyboardReturnKeyHandler.init(controller: self)
+        returnKeyHandler.lastTextFieldReturnKeyType = UIReturnKeyType.Done
+        returnKeyHandler.toolbarManageBehaviour = IQAutoToolbarManageBehaviour.BySubviews
+        
+        SweetAlert().showAlert("这是标题", subTitle: "swift移动架构设计demo", style: AlertStyle.Warning)
+        let rightBarItem = UIBarButtonItem(title: "+", style: UIBarButtonItemStyle.Done, target: self, action: "addAction")
+        
+        
+        self.navigationItem.rightBarButtonItem = rightBarItem
+        self.title = "what"
+        var tableFrame = self.view.frame
+        tableFrame.origin.y += 64
+        tableView = UITableView(frame: tableFrame)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = 80
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        tableView.registerClass(SwipeableCell.classForCoder(), forCellReuseIdentifier: "cell")
+        tableView.tableFooterView = UIView()
+          //下拉刷新
+         // tableView.addLegendHeaderWithRefreshingTarget(self, refreshingAction: "headRefresh")
+        
+        header = XHPathCover(frame: CGRectMake(0, 0, self.view.frame.width, 200))
+        header.setBackgroundImage(UIImage(named: "BG"))
+        header.setAvatarImage(UIImage(named: "cute_girl.jpg"))
+        header.isZoomingEffect = true
+        header.avatarButton.layer.cornerRadius = 33
+        header.avatarButton.layer.masksToBounds = true
+        header.avatarButton.addTarget(self, action: "doImage", forControlEvents: UIControlEvents.TouchUpInside)
+        header.setInfo(NSDictionary(objects: ["yuy","ios工程师"], forKeys: [XHUserNameKey,XHBirthdayKey]) as [NSObject : AnyObject])
+        
+        header.handleRefreshEvent = {
+            self.headRefresh()
+        }
+        tableView.tableHeaderView = header
+        
+        //上拉加载
+        tableView.addGifFooterWithRefreshingTarget(self, refreshingAction: "addMoreData")
+        self.view.addSubview(tableView)
+        
+        //加载数据
+        addData("")
+        
+        //判断当前版本是否是最新的
+        guard !CustomVersion.isLastVersion() else {
+            guideView()
+            return
+        }
     }
     
     func addAction(){

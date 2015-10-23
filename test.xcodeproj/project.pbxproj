@@ -105,6 +105,7 @@
 		187A56361BC8B444001C7669 /* up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 187A56251BC8B444001C7669 /* up@2x.png */; settings = {ASSET_TAGS = (); }; };
 		187A563A1BC8B886001C7669 /* SwipeableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 187A56391BC8B886001C7669 /* SwipeableCell.m */; settings = {ASSET_TAGS = (); }; };
 		187A563C1BC8C47C001C7669 /* CustomTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187A563B1BC8C47C001C7669 /* CustomTools.swift */; settings = {ASSET_TAGS = (); }; };
+		1889FA471BD49EAD005A5C27 /* CoreYate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1889FA461BD49EAD005A5C27 /* CoreYate.swift */; settings = {ASSET_TAGS = (); }; };
 		18A7226C1BCC936F0017C04A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A7226B1BCC936F0017C04A /* QuartzCore.framework */; };
 		18A7226E1BCC93790017C04A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A7226D1BCC93790017C04A /* AudioToolbox.framework */; };
 		18A722701BCC93800017C04A /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A7226F1BCC93800017C04A /* SpriteKit.framework */; };
@@ -277,6 +278,7 @@
 		187A56381BC8B886001C7669 /* SwipeableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeableCell.h; sourceTree = "<group>"; };
 		187A56391BC8B886001C7669 /* SwipeableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeableCell.m; sourceTree = "<group>"; };
 		187A563B1BC8C47C001C7669 /* CustomTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTools.swift; sourceTree = "<group>"; };
+		1889FA461BD49EAD005A5C27 /* CoreYate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreYate.swift; sourceTree = "<group>"; };
 		18A7226B1BCC936F0017C04A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		18A7226D1BCC93790017C04A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		18A7226F1BCC93800017C04A /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
@@ -474,6 +476,7 @@
 		187A55B31BC7A385001C7669 /* swift */ = {
 			isa = PBXGroup;
 			children = (
+				1889FA451BD49E96005A5C27 /* CoreYata */,
 				18A722781BCC970F0017C04A /* IQKeyboardManagerSwift */,
 				18CB93E61BC90FB400DAFAD1 /* Siren */,
 				187A55B41BC7A385001C7669 /* Alamofire */,
@@ -632,6 +635,14 @@
 				187A56391BC8B886001C7669 /* SwipeableCell.m */,
 			);
 			path = SwipeableCell;
+			sourceTree = "<group>";
+		};
+		1889FA451BD49E96005A5C27 /* CoreYata */ = {
+			isa = PBXGroup;
+			children = (
+				1889FA461BD49EAD005A5C27 /* CoreYate.swift */,
+			);
+			path = CoreYata;
 			sourceTree = "<group>";
 		};
 		18A722711BCC93830017C04A /* framewoks */ = {
@@ -850,6 +861,7 @@
 				18A722961BCC970F0017C04A /* IQTextView.swift in Sources */,
 				187A55D81BC7A385001C7669 /* Request.swift in Sources */,
 				187A55E61BC7A385001C7669 /* Reflect+Property.swift in Sources */,
+				1889FA471BD49EAD005A5C27 /* CoreYate.swift in Sources */,
 				18A7228E1BCC970F0017C04A /* IQUITextFieldView+Additions.swift in Sources */,
 				187A55D41BC7A385001C7669 /* Error.swift in Sources */,
 				187A55DA1BC7A385001C7669 /* ResponseSerialization.swift in Sources */,
